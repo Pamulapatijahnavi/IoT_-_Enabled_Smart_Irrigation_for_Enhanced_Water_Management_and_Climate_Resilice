@@ -1,0 +1,90 @@
+{
+  "data_storage": {
+    "data_directory": "D:\\mqtt\\data",
+    "keep_last_hours": 6,
+    "backup_enabled": true,
+    "backup_directory": "D:\\mqtt\\data\\backups",
+    "max_file_size_mb": 100,
+    "auto_rotate_files": true
+  },
+  "mqtt_broker_config_sub": {
+    "host": "localhost",
+    "port": 1883
+  },
+  "mqtt_topics": {
+    "sensor_topics": [
+      "sensors/gas",
+      "sensors/soil_temperature",
+      "sensors/soil_moisture",
+      "sensors/ph",
+      "sensors/light",
+      "sensors/air_temperature",
+      "sensors/air_humidity"
+    ],
+    "wildcard_topics": [
+      "sensors/+",
+      "devices/+/sensors/+"
+    ]
+  },
+  "sensor_types": {
+    "gas_sensor": {
+      "threshold_warning": "toxic_gas",
+      "ideal_range": "normal_gas",
+      "alert_conditions": {
+        "toxic_gas": "Immediate attention required to protect plants and ensure safety."
+      }
+    },
+    "soil_temp_sensor": {
+      "threshold_low": 18,
+      "threshold_high": 28,
+      "ideal_range": "18-28°C",
+      "alert_conditions": {
+        "low": "Temperature below 18°C may stress plants",
+        "high": "Temperature above 28°C may stress plants"
+      }
+    },
+    "moisture_sensor": {
+      "threshold_low": 20,
+      "threshold_high": 80,
+      "ideal_range": "20-80%",
+      "alert_conditions": {
+        "low": "Soil moisture below 20% may cause irreversible damage. Please inspect and irrigate immediately.",
+        "high": "Soil moisture above 80% deprives roots of oxygen, can lead to rot and disease. Please take corrective action."
+      }
+    },
+    "ph_sensor": {
+      "threshold_low": 6.5,
+      "threshold_high": 7.5,
+      "ideal_range": "6.5-7.5",
+      "alert_conditions": {
+        "low": "Soil pH below 6.5 may cause irreversible damage. Please test and amend the soil to raise pH.",
+        "high": "Soil pH above 7.5 hinders nutrient and water uptake. Please test and adjust the soil pH accordingly."
+      }
+    },
+    "light_sensor": {
+      "threshold_warning": 1000,
+      "ideal_range": "light or dark",
+      "alert_conditions": {
+        "note": "No alerts are issued based on light conditions."
+      }
+    },
+    "air_temp_sensor": {
+      "threshold_low": 18,
+      "threshold_high": 28,
+      "ideal_range": "18-28°C",
+      "alert_conditions": {
+        "low": "Air temperature below 18°C can stress plants. Please monitor and take protective measures.",
+        "high": "Air temperature above 28°C can stress plants. Please monitor and take protective measures."
+      }
+    },
+    "air_hum_sensor": {
+      "threshold_low": 40,
+      "threshold_high": 80,
+      "ideal_range": "40-80%",
+      "alert_conditions": {
+        "low": "Air humidity below 40% may affect plant health. Please assess and adjust environmental conditions.",
+        "high": "Air humidity above 80% may affect plant health. Please assess and adjust environmental conditions."
+      }
+    }
+  }
+}

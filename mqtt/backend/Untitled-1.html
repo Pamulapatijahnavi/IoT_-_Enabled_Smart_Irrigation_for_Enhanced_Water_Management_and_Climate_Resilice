@@ -1,0 +1,35 @@
+<div class="container">
+  <h3>Student Registration (Simple TDF)</h3>
+<form #f="ngForm" (ngSubmit)="onSubmit()">
+ <div class="form-group">
+  <label for="studentName">Student Name</label>
+  <input type="text"
+             id="studentName"
+             name="studentName"
+             [(ngModel)]="studentModel.studentName"
+             required
+             #name="ngModel">
+ <div *ngIf="name.invalid && name.touched" class="error-message">
+        Student Name is required.
+  </div>
+  </div>
+
+  <div class="form-group">
+  <label for="usn">USN Number</label>
+  <input type="text"
+             id="usn"
+             name="usn"
+             [(ngModel)]="studentModel.usn"
+             required
+             #usn="ngModel">
+  <div *ngIf="usn.invalid && usn.touched" class="error-message">
+        USN Number is required.
+      </div>
+    </div>
+    
+    <button type="submit" [disabled]="f.invalid">
+      Register
+    </button>
+    
+  </form>
+</div>
